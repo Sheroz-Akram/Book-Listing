@@ -1,7 +1,12 @@
 <div class="container" style="margin-top: 50px;margin-bottom: 30px;">
     <h3>List a New Book</h3>
     <p>Please fill the form below to list your book in our website. Make sure you enter correct details. </p>
-    <form class="row g-3">
+    @if(isset($status))
+        <div class="alert alert-{{ $type }}" role="alert">
+            {{ $status }}
+        </div>
+    @endif
+    <form class="row g-3" action="SubmitPost" method="post" enctype="multipart/form-data">
         @csrf
         <div class="col-md-6">
             <label for="bookTitle" class="form-label">Title</label>
@@ -33,11 +38,12 @@
         </div>
         <div class="col-12">
             <label for="coverImage" class="form-label">Book Cover Image</label>
-            <input type="file" accept="image/png, image/jpeg" class="form-control" id="coverImage" required>
+            <input type="file" accept="image/png, image/jpeg" name="coverImage" class="form-control" id="coverImage"
+                required>
         </div>
         <div class="col-6">
             <label for="bookPrice" class="form-label">Price (RS)</label>
-            <input type="number" class="form-control" id="inputAddress2" placeholder="1200" required />
+            <input type="number" class="form-control" name="bookPrice" placeholder="1200" required />
         </div>
         <div class="col-6">
             <label for="bookCondition" class="form-label">Condition</label>
@@ -48,23 +54,23 @@
         </div>
         <div class="col-md-6">
             <label for="userEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="userEmail" required>
+            <input type="email" class="form-control" name="userEmail" placeholder="joe@example.cm" id="userEmail" required>
         </div>
         <div class="col-md-6">
-            <label for="userPhone" class="form-label">Password</label>
-            <input type="tel" class="form-control" id="userPhone" required>
+            <label for="userPhone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" name="userPhone" placeholder="XX-XXXXXX-XX" id="userPhone" required>
         </div>
         <div class="col-md-6">
             <label for="userCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="userCity" placeholder="Lahore" required>
+            <input type="text" class="form-control" name="userCity" id="userCity" placeholder="Lahore" required>
         </div>
         <div class="col-md-4">
             <label for="userState" class="form-label">State</label>
-            <input type="text" class="form-control" id="userState" placeholder="Punjab" required>
+            <input type="text" class="form-control" name="userState" id="userState" placeholder="Punjab" required>
         </div>
         <div class="col-md-2">
             <label for="userZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="userZip" placeholder="54850" required>
+            <input type="text" class="form-control" name="userZip" id="userZip" placeholder="54850" required>
         </div>
         <div class="col-12">
             <div class="form-check">

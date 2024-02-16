@@ -14,7 +14,7 @@
           <a class="nav-link" href="/NewListing">New Listing</a>
         </li>
       </ul>
-      <form class="d-flex" method="get" action="Search" role="search">
+      <form class="d-flex" method="post" action="Search" role="search">
         @csrf
         <input class="form-control me-2" type="search" name="bookName" placeholder="Book Title" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>

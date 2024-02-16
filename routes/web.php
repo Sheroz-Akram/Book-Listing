@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view("/", "Home");
+Route::get("/", [BookPostController::class, "index"]);
 Route::view("/NewListing", "NewListing");
+Route::post("SubmitPost", [BookPostController::class, "store"]);
+Route::post("Search", [BookPostController::class, "search"]);
